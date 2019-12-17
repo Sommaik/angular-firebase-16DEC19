@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adv-form',
@@ -13,7 +15,11 @@ export class AdvFormComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(8)]]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -21,6 +27,14 @@ export class AdvFormComponent implements OnInit {
   onFormSubmit() {
     if (this.loginForm.valid) {
       console.log('send data to server');
+      this.userService
+        .register(this.loginForm.value)
+        .subscribe((resp) => {
+          console.log('register success');
+          this.router.navigate(['login']);
+        }, (error) => {
+          console.log('error');
+        });
     } else {
       console.log('invalid form');
     }

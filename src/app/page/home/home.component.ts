@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/user.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-home',
@@ -15,12 +17,17 @@ export class HomeComponent implements OnInit {
   list = ['One', 'Two', 'Three', 'Four'];
   price = 1234654.89;
   currentDate = new Date();
+  userList: User[];
 
   get toogleLabel(): string {
     return this.isShow ? 'Hide' : 'Show';
   }
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    this.userService.list().subscribe((resp) => {
+      this.userList = resp;
+    });
+  }
 
   ngOnInit() {
   }

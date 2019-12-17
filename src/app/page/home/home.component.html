@@ -18,3 +18,18 @@
 <h1>{{price | number}}</h1>
 <h1>{{currentDate | date:'dd/MMM/y' | uppercase }}</h1>
 <h1>{{ '1234567890123456' | trimCreditCard:'#' }}</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{user.email}}</td>
+      <td>{{user.password}}</td>
+    </tr>
+  </tbody>
+</table>
