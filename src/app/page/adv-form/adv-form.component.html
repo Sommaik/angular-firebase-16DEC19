@@ -1,0 +1,6 @@
+<form [formGroup]="loginForm" (submit)="onFormSubmit()" >
+  <input formControlName="email" >
+  <input formControlName="password" type="password">
+  <button>Login</button>
+</form>
+<div>{{loginForm.value | json}}</div>

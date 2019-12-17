@@ -1,0 +1,20 @@
+<div *ngIf="isShow">
+  <p>{{name}}</p>
+  <h1>{{title}}</h1>
+  <input [(ngModel)]="url">
+  <a [href]="url">goto url</a>
+  <button (click)="onBtnClick()" class="btn btn-primary">Show Url</button>
+  <h1>{{url}}</h1>
+</div>
+<button (click)="isShow = !isShow" class="btn btn-secondary">{{toogleLabel}}</button>
+
+<ul class="list-group">
+  <li class="list-group-item"
+  appHighlight="yellow"
+  *ngFor="let item of list; let idx = index;"
+  [ngClass]="{active: idx === 2 }">{{idx + 1}} {{item}}</li>
+</ul>
+
+<h1>{{price | number}}</h1>
+<h1>{{currentDate | date:'dd/MMM/y' | uppercase }}</h1>
+<h1>{{ '1234567890123456' | trimCreditCard:'#' }}</h1>

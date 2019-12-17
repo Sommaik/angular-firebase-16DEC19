@@ -1,0 +1,9 @@
+<form #loginForm="ngForm" (submit)="onFormSubmit(loginForm)">
+  <input name="email" ngModel #email="ngModel" required>
+  <input name="password" ngModel #password="ngModel" required minlength="8">
+  <button>Login</button>
+</form>
+{{ email.valid }}
+{{ password.valid }}
+<div>{{loginForm.value | json}}</div>
+<div>{{loginForm.valid}}</div>
