@@ -21,7 +21,9 @@ import { TaskComponent } from './page/task/task.component';
 import { TaskFormComponent } from './page/task-form/task-form.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule  } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ProgressbarModule, ModalModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -48,8 +50,9 @@ import { AngularFireStorageModule  } from '@angular/fire/storage';
     AngularFireModule.initializeApp(environment.FIREBASEKEY),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
-
+    AngularFireStorageModule,
+    ProgressbarModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

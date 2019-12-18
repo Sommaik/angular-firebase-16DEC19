@@ -1,1 +1,11 @@
-<p>task-form works!</p>
+<form [formGroup]="taskForm" (submit)="onFormSubmit()">
+  <div class="form-group">
+    <label for="taskName">Task Name</label>
+    <input type="text" class="form-control" id="taskName" formControlName="taskName">
+  </div>
+  <div class="form-group">
+    <label for="completed">Completed</label>
+    <input type="checkbox" class="form-control" id="completed" formControlName="completed">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

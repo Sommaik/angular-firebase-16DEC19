@@ -40,6 +40,7 @@ const routes: Routes = [{
       { path: 'profile', component: ProfileComponent},
       { path: 'task', component: TaskComponent},
       { path: 'task-form', component: TaskFormComponent },
+      { path: 'task-form/:id', component: TaskFormComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]
 }];

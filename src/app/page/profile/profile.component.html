@@ -7,5 +7,18 @@
     <label for="lastName">Last Name</label>
     <input type="text" class="form-control" id="lastName" formControlName="lastName">
   </div>
+  <div>
+    <img [src]="avatar" >
+  </div>
+  <div class="custom-file">
+    <label class="custom-file-label" for="customFile">Choose Avatar</label>
+    <input type="file"
+      class="custom-file-input"
+      id="customFile"
+      (change)="onSelectAvatar($event)">
+  </div>
+
+  <progressbar [value]="uploadPercent | async"></progressbar>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

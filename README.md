@@ -50,3 +50,7 @@ npm run ng g c page/task
 npm run ng g c page/dashboard
 npm run ng g c page/profile
 ```
+
+```
+firebase login
+```

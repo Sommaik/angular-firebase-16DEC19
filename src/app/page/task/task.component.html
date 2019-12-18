@@ -1,1 +1,39 @@
-<p>task works!</p>
+<form [formGroup]="filterForm" (submit)="onFilterSubmit()">
+  <input type="text" formControlName="taskName">
+  <button class="btn">Filter</button>
+</form>
+<button class="btn btn-link" (click)="onAddButtonClick()">Create new task</button>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Task</th>
+      <th>Completed</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of taskList | async">
+      <td>
+        <button
+          class="btn btn-info"
+          (click)="onEditButtonClick(task.id)">Edit</button>
+      </td>
+      <td>{{task.taskName}}</td>
+      <td>{{task.completed}}</td>
+      <td>
+        <button
+          class="btn btn-danger"
+          (click)="openModal(cofirmDialog, task.id)">Del</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #cofirmDialog>
+  <div class="modal-body text-center">
+    <p>Do you want to delete {{id}}?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>

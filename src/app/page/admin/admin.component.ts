@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private afauth: AngularFireAuth,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  onSignOut() {
+    this.afauth.auth.signOut().then(() => {
+      this.router.navigate(['home']);
+    });
   }
 
 }
