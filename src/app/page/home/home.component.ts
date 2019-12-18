@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 import { User } from 'src/app/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,10 @@ export class HomeComponent implements OnInit {
     return this.isShow ? 'Hide' : 'Show';
   }
 
-  constructor(private userService: UserService) {
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
     this.userService.list().subscribe((resp) => {
       this.userList = resp;
     });
@@ -36,4 +40,7 @@ export class HomeComponent implements OnInit {
     this.confirmUrl.emit(this.url);
   }
 
+  onGotoSupport() {
+    this.router.navigate(['support', 'aboutus']);
+  }
 }

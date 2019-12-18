@@ -30,3 +30,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 http://167.99.77.15:3000/user
 
 https://github.com/Sommaik/angular-firebase-16DEC19
+
+```
+npm run ng g module support -- --routing
+
+npm run ng g c support/about-us
+npm run ng g c support/contact-us
+npm run ng g c support/faq
+```
+
+http://localhost:4200/support/aboutus
+http://localhost:4200/support/contactus
+http://localhost:4200/support/faq
+
+
+```
+npm run ng g c page/task-form
+npm run ng g c page/task
+npm run ng g c page/dashboard
+npm run ng g c page/profile
+```

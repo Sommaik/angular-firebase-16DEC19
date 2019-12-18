@@ -1,0 +1,11 @@
+<form [formGroup]="phoneForm" (submit)="requestOtp()">
+  <input type="text" formControlName="phone" />
+  <button class="btn btn-primary">Request OTP</button>
+</form>
+
+<div id="recapt-panel"></div>
+
+<form [formGroup]="otpForm" (submit)="confirmOtp()">
+  <input type="text" formControlName="otp" />
+  <button class="btn btn-primary">Confirm OTP</button>
+</form>

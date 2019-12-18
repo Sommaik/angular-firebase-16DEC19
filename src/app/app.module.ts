@@ -11,6 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HighlightDirective } from './highlight.directive';
 import { TrimCreditCardPipe } from './trim-credit-card.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PhoneLoginComponent } from './page/phone-login/phone-login.component';
+import { ProfileComponent } from './page/profile/profile.component';
+import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { TaskComponent } from './page/task/task.component';
+import { TaskFormComponent } from './page/task-form/task-form.component';
+import { AdminComponent } from './page/admin/admin.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule  } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -19,7 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
     SimpleFormComponent,
     AdvFormComponent,
     HighlightDirective,
-    TrimCreditCardPipe
+    TrimCreditCardPipe,
+    PhoneLoginComponent,
+    ProfileComponent,
+    DashboardComponent,
+    TaskComponent,
+    TaskFormComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +45,11 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.FIREBASEKEY),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

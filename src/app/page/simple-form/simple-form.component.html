@@ -3,7 +3,6 @@
   <input name="password" ngModel #password="ngModel" required minlength="8">
   <button>Login</button>
 </form>
-{{ email.valid }}
-{{ password.valid }}
-<div>{{loginForm.value | json}}</div>
-<div>{{loginForm.valid}}</div>
+<button class="btn btn-primary" (click)="signInWithGmail()">GMAIL</button>
+<button class="btn btn-primary" (click)="signInWithFB()">FACEBOOK</button>
+<button class="btn btn-primary" (click)="signInWithPhone()">PHONE</button>
